@@ -70,6 +70,8 @@ jobs:
         working-directory: dockerize
         run: |
           cat << EOF | docker-compose exec -T devweb bash
+          python manage.py makemigrations --merge
+          python manage.py migrate
           export DJANGO_SUPERUSER_PASSWORD=admin
           python manage.py createsuperuser --no-input --username admin --email 'admin@example.com'
           EOF

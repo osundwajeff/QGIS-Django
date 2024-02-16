@@ -56,6 +56,9 @@ jobs:
       - name: Run the containers
         run: docker-compose up -d db devweb
 
+      - name: Start django server
+        run: docker-compose -p exec devweb python manage.py runserver 0.0.0.0:8080
+
       - name: Run Coverage test
         run: |
           cat << EOF | docker-compose exec -T devweb bash

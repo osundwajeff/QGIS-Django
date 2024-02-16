@@ -67,7 +67,10 @@ jobs:
           EOF
 
       - name: Start django server
-        run: docker-compose exec -T devweb bash -c "python manage.py runserver 0.0.0.0:8080"
+        run: |
+          cat << EOF | docker-compose exec -T devweb bash
+          python manage.py runserver 0.0.0.0:8080
+          EOF
 
       - name: Test django endpoint
         run: |

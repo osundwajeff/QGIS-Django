@@ -57,7 +57,7 @@ jobs:
         run: docker-compose up -d db devweb
 
       - name: Start django server
-        run: docker-compose exec devweb python manage.py runserver 0.0.0.0:8080
+        run: make devweb-runserver
 
       - name: Run Coverage test
         run: |

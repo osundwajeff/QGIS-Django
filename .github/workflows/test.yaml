@@ -66,12 +66,6 @@ jobs:
           coverage xml
           EOF
 
-      - name: Start django server
-        run: |
-          cat << EOF | docker-compose exec -T devweb bash
-          python manage.py runserver 0.0.0.0:8080
-          EOF
-
       - name: Test django endpoint
         run: |
           sleep 60

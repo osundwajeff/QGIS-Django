@@ -60,11 +60,17 @@ jobs:
         run: |
           cat << EOF | docker-compose exec -T devweb bash
           pip install coverage
-          python manage.py makemigrations
+          python manage.py makemigrations --merge --noinput
           python manage.py migrate
           coverage run manage.py test
           coverage xml
           EOF
+
+      - name: Stop containers and the spin them up
+        run: |
+          docker-compose down
+          sleep 60
+          docker-compose up -d db devweb
 
       - name: Test django endpoint
         run: |

@@ -84,8 +84,8 @@ jobs:
         working-directory: dockerize
         run: |
           cat << EOF | docker-compose exec -T devweb bash
-          export DJANGO_SUPERUSER_PASSWORD=admin
-          python manage.py createsuperuser --no-input --username admin --email 'admin@example.com'
+          export DJANGO_SUPERUSER_PASSWORD=qgis_admin
+          python manage.py createsuperuser --no-input --username qgis_admin --email 'qgis_admin@example.com'
           EOF
 
       - name: Install playwright dependencies

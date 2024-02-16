@@ -60,7 +60,7 @@ jobs:
         run: |
           cat << EOF | docker-compose exec -T devweb bash
           pip install coverage
-          python manage.py makemigrations --merge --noinput
+          python manage.py makemigrations
           python manage.py migrate
           coverage run manage.py test
           coverage xml
@@ -74,7 +74,7 @@ jobs:
 
       - name: Test django endpoint
         run: |
-          sleep 120
+          sleep 60
           curl http://0.0.0.0:62202
           if [ $? -ne 0 ]; then
             echo "Curl command failed"

@@ -31,7 +31,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    baseURL: process.env.STAGING === '1' ? 'https://staging.plugins.qgis.org/' : 'http://0.0.0.0:62202'
+    baseURL: process.env.STAGING === '1' ? 'https://staging.plugins.qgis.org/' : 'http://0.0.0.0:62203'
   },
 
   /* Configure projects for major browsers */

@@ -80,13 +80,13 @@ jobs:
             exit 1
           fi
 
-      - name: Create superuser
-        working-directory: dockerize
-        run: |
-          cat << EOF | docker-compose exec -T devweb bash
-          export DJANGO_SUPERUSER_PASSWORD=qgis_admin
-          python manage.py createsuperuser --no-input --username qgis_admin --email 'qgis_admin@example.com'
-          EOF
+      #- name: Create superuser
+      #  working-directory: dockerize
+      #  run: |
+      #    cat << EOF | docker-compose exec -T devweb bash
+      #    export DJANGO_SUPERUSER_PASSWORD=qgis_admin
+      #    python manage.py createsuperuser --no-input --username qgis_admin --email 'qgis_admin@example.com'
+      #    EOF
 
       - name: Install playwright dependencies
         working-directory: playwright/ci-test

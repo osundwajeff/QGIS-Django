@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 let url = '/';
-const username = 'qgis_admin'
-const password = 'qgis_admin'
+const username = 'admin'
+const password = 'admin'
 
 test('authentication-setup', async ({ page }) => {
   await page.goto(url);

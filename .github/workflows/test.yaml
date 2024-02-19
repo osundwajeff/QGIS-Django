@@ -68,9 +68,9 @@ jobs:
 
       - name: Start Django server
         run: |
-          docker-compose exec -T devweb bash -c "nohup python manage.py runserver 0.0.0.0:8080 &"
-          sleep 10
           docker-compose exec -T devweb bash -c "python manage.py loaddata fixtures/*.json"
+          sleep 10
+          docker-compose exec -T devweb bash -c "nohup python manage.py runserver 0.0.0.0:8080 &"
 
       - name: Test django endpoint
         run: |

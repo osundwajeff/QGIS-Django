@@ -1,8 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 let url = '/';
-const username = 'admin'
-const password = 'admin'
+const username = 'admin';
+const password = 'admin';
+const authFile = 'auth.json';
 
 test('authentication-setup', async ({ page }) => {
   await page.goto(url);
@@ -46,5 +47,7 @@ test('authentication-setup', async ({ page }) => {
   await expect(page.locator('h2')).toContainText('QGIS plugins web portal');
 
   await expect(page.getByRole('link', { name: '' })).toBeVisible();
+
+  await page.context().storageState({path: authFile});
 
 });

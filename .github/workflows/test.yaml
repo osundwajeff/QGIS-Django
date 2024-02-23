@@ -62,6 +62,7 @@ jobs:
           pip install coverage
           python manage.py makemigrations --merge --noinput
           python manage.py makemigrations feedjack
+          python manage.py makemigrations
           python manage.py migrate
           coverage run manage.py test
           coverage xml
